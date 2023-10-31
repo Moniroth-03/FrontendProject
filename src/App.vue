@@ -2,6 +2,8 @@
 import Category from './components/Category.vue';
 import Promotion from './components/Promotion.vue';
 // import Button from './components/Button.vue';
+import { ArrowLongRightIcon } from '@heroicons/vue/20/solid';
+import { ArrowLongLeftIcon } from '@heroicons/vue/20/solid';
 import img1 from './assets/cat-13 1.png'
 import img2 from './assets/cat-11 1.png'
 import img3 from './assets/cat-12 1.png'
@@ -15,6 +17,8 @@ import img10 from './assets/cat-7 1.png'
 import img11 from './assets/Cms-04 1.png'
 import img12 from './assets/Cat-01 1.png'
 import img13 from './assets/Cms-03 1.png'
+
+
 
 const fruits = [
   {
@@ -86,7 +90,8 @@ const promotions = [
     description: '3 items',
     bg: "bg-[#F0E8D5]",
     button: "Shop Now",
-    bgButton :"bg-[#3BB77E]"
+    bgButton :"bg-[#3BB77E]",
+    icon: ArrowLongRightIcon, // Include the icon component
   },
   {
     name: 'Make your Breakfast Healthy and Easy',
@@ -94,7 +99,8 @@ const promotions = [
     description: '4 items',
     bg: "bg-[#F3E8E8]",
     button: "Shop Now",
-    bgButton :"bg-[#3BB77E]"
+    bgButton :"bg-[#3BB77E]",
+    icon: ArrowLongRightIcon, // Include the icon component
   },
   {
     name: 'The best Organic Products Online',
@@ -102,9 +108,11 @@ const promotions = [
     description: '4 items',
     bg: "bg-[#E7EAF3]",
     button: "Shop Now",
-    bgButton :"bg-[#FDC040]"
+    bgButton :"bg-[#FDC040]",
+    icon: ArrowLongRightIcon, // Include the icon component
   },
 ];
+
 </script>
 
 <template>
@@ -113,7 +121,7 @@ const promotions = [
       <Category :class="fruit.bg" v-for="(fruit, index) in fruits" :key="index" :image="fruit.imageUrl" :name="fruit.name" :description="fruit.description" />
     </div>
     <div class="flex justify-center gap-4">
-      <Promotion :class="promotion.bg+ ` flex justify-center`" v-for="(promotion, index) in promotions" :key="index" :name="promotion.name" :bgButton="promotion.bgButton" :buttonText="promotion.button" :imageUrl="promotion.imageUrl"   />
+      <Promotion :icon="promotion.icon" :class="promotion.bg+ ` flex justify-center`" v-for="(promotion, index) in promotions" :key="index" :name="promotion.name" :bgButton="promotion.bgButton" :buttonText="promotion.button" :imageUrl="promotion.imageUrl"   />
     </div>
   </section>
 </template>

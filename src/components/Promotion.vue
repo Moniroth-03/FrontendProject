@@ -1,6 +1,6 @@
 <script>
 import Button from './Button.vue';
-import { ArrowLongRightIcon } from '@heroicons/vue/20/solid';
+// import { ArrowLongRightIcon } from '@heroicons/vue/20/solid';
 
 export default {
   name: "Promotion",
@@ -8,14 +8,10 @@ export default {
     name: String,
     bgButton: String,
     imageUrl: String,
-    buttonText: String
+    buttonText: String,
+    icon: Object, 
   },
   components: { Button },
-  data() {
-    return {
-      iconComponent: ArrowLongRightIcon, // Pass the icon component as a data property
-    };
-  }
 }
 </script>
 
@@ -25,7 +21,7 @@ export default {
       <div class="flex items-center">
         <h3>{{ name }}</h3>
       </div>
-      <Button :background="bgButton" :text="buttonText" :iconComponent="iconComponent" />
+      <Button :background="bgButton" :text="buttonText" :iconComponent="icon" />
     </div>
 
     <div class="relative h-full w-1/2 overflow-visible">
