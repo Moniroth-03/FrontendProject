@@ -45,7 +45,7 @@
             <img class="h-[180px] w-full object-contain" :src="product.image" alt="hi">
         </div>
         <span class="text-xs text-slate-500">Hodo Foods</span>
-        <h1 class="">{{ product.name }}</h1>
+        <a :href="'/products/'+product.id" class="block">{{ product.name }}</a>
         <div class="flex gap-4">
             <Rating class="text-yellow-300 gap-2" v-model="product.rate" :cancel="false" />
             <span class="">({{ product.rate }})</span>

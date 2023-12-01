@@ -22,7 +22,9 @@ import img10 from '../assets/cat-7 1.png'
 import img11 from '../assets/Cms-04 1.png'
 import img12 from '../assets/Cat-01 1.png'
 import img13 from '../assets/Cms-03 1.png'
-import { ArrowLongRightIcon } from '@heroicons/vue/20/solid';
+import { ArrowLongRightIcon,UserIcon, ShoppingCartIcon, HeartIcon, ArrowPathIcon, FireIcon, ChevronDownIcon } from '@heroicons/vue/20/solid';
+
+
 
 
 export const useEStore = defineStore("products",{
@@ -58,60 +60,70 @@ export const useEStore = defineStore("products",{
           ],
             categories : [
                 {
+                  id: 1,
                   name: 'Cake & Milk',
                   imageUrl: img1,
                   description: '3 items',
                   bg: "bg-[#F2FCE4]",
                 },
                 {
+                  id: 2,
                   name: 'Peach',
                   imageUrl: img2,
                   description: '4 items',
                   bg: "bg-[#FFFCEB]"
                 },
                 {
+                  id: 3,
                   name: 'Oganic Kiwi',
                   imageUrl: img3,
                   description: '4 items',
                   bg: "bg-[#ECFFEC]"
                 },
                 {
+                  id: 4,
                   name: 'Red Apple',
                   imageUrl: img4,
                   description: '4 items',
                   bg: "bg-[#FEEFEA]"
                 },
                 {
+                  id: 5,
                   name: 'Snack',
                   imageUrl: img5,
                   description: '4 items',
                   bg: "bg-[#FFF3EB]"
                 },
                 {
+                  id: 6,
                   name: 'Black Plum',
                   imageUrl: img6,
                   description: '4 items',
                   bg: "bg-[#FFF3FF]"
                 },
                 {
+                  id: 7,
                   name: 'Vegetables',
                   imageUrl: img7,
                   description: '4 items',
                   bg: "bg-[#F2FCE4]"
                 },
                 {
+                  id: 8,
                   name: 'Headphone',
                   imageUrl: img8,
                   description: '4 items',
                   bg: "bg-[#FFFCEB]"
                 },
                 {
+                  id: 9,
                   name: 'Cake & Milk',
                   imageUrl: img9,
                   description: '4 items',
                   bg: "bg-[#F2FCE4]"
                 },
                 {
+                  id: 10,
                   name: 'Orange',
                   imageUrl: img10,
                   description: '4 items',
@@ -252,6 +264,22 @@ export const useEStore = defineStore("products",{
                     ],
                     groups: [
                         "Milks & Diaries", "Coffees & Teas", "Pet Foods", "Meats", "Vegetables", "Fruits"
+                    ],
+                    menuItems: [
+                      {id:1, name: "Account",icon:UserIcon,isRight:false,color:"text-slate-500"},
+                      {id:2, name: "Compare",icon:ArrowPathIcon,isRight:false,color:"text-slate-500"},
+                      {id:3, name: "WishList",icon:HeartIcon,isRight:false,color:"text-slate-500"},
+                      {id:4, name: "Cart",icon:ShoppingCartIcon,isRight:false,color:"text-slate-500"},
+                    ],
+                    menuCategoryItems: [
+                      {id:1, name: "Hot Deals",icon:FireIcon,isRight:false,color:"text-primary"},
+                      {id:2, name: "Home",icon:"",isRight:false,color:"text-slate-500"},
+                      {id:3, name: "Food",icon:ChevronDownIcon,isRight:true,color:"text-slate-500"},
+                      {id:4, name: "Vegetables",icon:ChevronDownIcon,isRight:true,color:"text-slate-500"},
+                      {id:5, name: "Drink",icon:"",isRight:false,color:"text-slate-500"},
+                      {id:6, name: "Cookies",icon:"",isRight:false,color:"text-slate-500"},
+                      {id:7, name: "Meat & Seafood",icon:ChevronDownIcon,isRight:true,color:"text-slate-500"},
+                      {id:8, name: "Bakery",icon:"",isRight:false,color:"text-slate-500"},
                     ]
     })
 })
