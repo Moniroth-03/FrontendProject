@@ -11,8 +11,8 @@
         <div class="flex gap-2">
             <Button class="px-6" v-if="quantity === 0" @click= "() => quantity += 1" background="bg-[#DFF9EE]" text="Add" textColor="text-[#4CAE87]" :iconComponent="PlusIcon" />
             <Button class="flex flex-row-reverse px-4" background="bg-primary" text="Add To Cart" textColor="text-white" :iconComponent="ShoppingCartIcon" />
-            <Button class="flex flex-row-reverse px-2 border-[1px]" background="bg-white" text="" textColor="text-black" :iconComponent="HeartIcon" />
-            <Button class="flex flex-row-reverse px-2 border-[1px]" background="bg-white" text="" textColor="text-black" :iconComponent="ArrowsRightLeftIcon" />
+            <Button class="flex flex-row-reverse px-2 border-[1px]" background="bg-white" text="" textColor="text-black" :noText="true" :iconComponent="HeartIcon" />
+            <Button class="flex flex-row-reverse px-2 border-[1px]" background="bg-white" text="" textColor="text-black" :noText="true" :iconComponent="ArrowsRightLeftIcon" />
         </div>
         <p class="text-xs font-semibold flex gap-2">Vendor<span class="text-slate-400">Lorem</span></p>
         <p class="text-xs font-semibold flex gap-2">SKU<span class="text-slate-400">Lorem</span></p>

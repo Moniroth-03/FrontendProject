@@ -13,7 +13,7 @@
         <h1 class="font-bold text-2xl">{{ title }}</h1>
         <div class="flex gap-4">
             <span class="font-bold">All</span>
-            <p v-for="group in groups" class="text-slate-700">{{ group }}</p>
+            <p v-for="(group,index) in groups" :key="index" class="text-slate-700">{{ group }}</p>
         </div>
     </div>
 </template>

@@ -25,7 +25,7 @@
                 <div class="flex rounded-full overflow-hidden bg-white w-[60%] h-10">
                     <PaperAirplaneIcon class="pl-8 w-12 mt-1 mr-2 h-12 -rotate-[32deg] self-start text-slate-500" />
                     <input class="outline-none text-xs  flex-1" type="text" :placeholder="'Your email address'">
-                    <Button class="px-8 rounded-full" background="bg-primary" text="Subscribe" textColor="text-white" iconComponent="" />
+                    <Button class="px-8" :isRounded="true" background="bg-primary" text="Subscribe" textColor="text-white" iconComponent="" />
                 </div>
             </div>
             <div class="basis-1/2 object-cover w-full">

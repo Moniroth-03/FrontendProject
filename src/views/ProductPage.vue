@@ -5,11 +5,11 @@
         <div class="flex flex-col gap-4">
             <ProductImage :image="active === 0 ?imageUrl=product.image:imageUrl" class="border-2"  />
             <div class="flex">
-                <Button background="bg-primary" :text="buttonText" textColor="text-white h-8 m-auto mr-4" :iconComponent="ArrowLeftIcon" />
+                <Button background="bg-primary" :noText="true" :text="buttonText" textColor="text-white h-8 m-auto mr-4" :iconComponent="ArrowLeftIcon" />
                 <div class="flex gap-4 flex-1 overflow-scroll w-full">
                     <ProductImage @click="active = index;updateImageUrl(index)" v-for="(p,index) in products" :key="index" :image="p.image" :class="isActive(p.image,index) +' border-2 rounded-lg w-24 h-24'"  />
                 </div>
-                <Button background="bg-slate-200" :text="buttonText" textColor="text-black rounded-full h-8 m-auto ml-4" :iconComponent="ArrowRightIcon" />
+                <Button background="bg-slate-200" :noText="true" :text="buttonText" textColor="text-black rounded-full h-8 m-auto ml-4" :iconComponent="ArrowRightIcon" />
             </div>
         </div>
         <ProductDetail :title="product.name" :rate="product.rate" :price="product.sellPrice" :quantity="product.quantity" :discount="product.discountPrice" />
@@ -57,6 +57,7 @@
       active.value = indexWithMatchingImage;
     }
   });
+  
   const setActiveImage = (index) => {
     active.value = index;
     imageUrl.value = filteredProducts[index].image;
