@@ -31,12 +31,15 @@ const {groups,products,categories,promotions} = storeToRefs(store);
     </div>
     <Group :groups="groups" title="Popular Products" />
     <div class="grid grid-cols-5 gap-4">
-      <Product :products="products" />
+
+      <!-- <Product :products="products" /> -->
+      <Product /> 
+      
     </div>
   </section>
 </template>
 
-<script>
+<!-- <script>
   // Exporting the component
   export default {
     name: "HomeView" // You can set a name for your component if needed
@@ -44,4 +47,4 @@ const {groups,products,categories,promotions} = storeToRefs(store);
     ,
     components: { Showcase }
 }
-</script>
+</script> -->

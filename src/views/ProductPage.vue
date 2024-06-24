@@ -1,18 +1,18 @@
 <template>
-    <div v-for="(product, index) in filteredProducts" :key="index" :class="product.bg + ' w-screen h-[40vh] p-8 flex flex-col gap-6'">
-      <span class="text-slate-500">Home > Products > <span class="text-primary">{{ product.name }}</span></span>
+    <div :class=" + ' w-screen h-[40vh] p-8 flex flex-col gap-6'">
+      <span class="text-slate-500">Home > Products > <span class="text-primary"></span></span>
       <div class="grid grid-cols-2 gap-8 min-h-[70vh]">
-        <div class="flex flex-col gap-4">
-            <ProductImage :image="active === 0 ?imageUrl=product.image:imageUrl" class="border-2"  />
+        <!-- <div class="flex flex-col gap-4">
+            <ProductImage image="" class="border-2"  />
             <div class="flex">
                 <Button background="bg-primary" :noText="true" :text="buttonText" textColor="text-white h-8 m-auto mr-4" :iconComponent="ArrowLeftIcon" />
                 <div class="flex gap-4 flex-1 overflow-scroll w-full">
-                    <ProductImage @click="active = index;updateImageUrl(index)" v-for="(p,index) in products" :key="index" :image="p.image" :class="isActive(p.image,index) +' border-2 rounded-lg w-24 h-24'"  />
+                    <ProductImage @click="active = index;updateImageUrl(index)" v-for="(p,index) in images" :key="index" :image="p.imageUrl" :class="isActive(p.imageUrl,index) +' border-2 rounded-lg w-24 h-24'"  />
                 </div>
                 <Button background="bg-slate-200" :noText="true" :text="buttonText" textColor="text-black rounded-full h-8 m-auto ml-4" :iconComponent="ArrowRightIcon" />
             </div>
-        </div>
-        <ProductDetail :title="product.name" :rate="product.rate" :price="product.sellPrice" :quantity="product.quantity" :discount="product.discountPrice" />
+        </div> -->
+        <ProductDetail :name="product.name" :description="product.description" :price="product.price" />
       </div>
       <div class="border-[1px]">
         <div class="flex flex-col gap-8 p-8">
@@ -44,24 +44,32 @@
     const active = ref(0);
     const imageUrl = ref(null);
     const store = useEStore();
-    const { products } = storeToRefs(store);
+    const product = ref({})
+    const loading = ref(true)
+    const error = ref(null)
     const route = useRoute();
     onMounted(() => {
-    // Find the index of the product with a matching image in filteredProducts
-    const indexWithMatchingImage = filteredProducts.findIndex(
-      (product) => product.image === imageUrl.value
-    );
-
-    // If a matching image is found, update the active index
-    if (indexWithMatchingImage !== -1) {
-      active.value = indexWithMatchingImage;
+      setTimeout(async () => {
+    try {
+      const response = await fetch('https://n4-k-saas-api.vercel.app/api/product/clxfwtwvl0004l20clwf4o4n1?shopId=clwizxn6e0003suug5o44lwpz')
+      if (!response.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      const result = await response.json()
+      product.value = result
+      console.log(result);
+    } catch (err) {
+      error.value = err.message
+    } finally {
+      loading.value = false
     }
+  }, 3000); // 3 seconds delay
   });
   
-  const setActiveImage = (index) => {
-    active.value = index;
-    imageUrl.value = filteredProducts[index].image;
-  };
+  // const setActiveImage = (index) => {
+  //   active.value = index;
+  //   imageUrl.value = filteredProducts[index].image;
+  // };
 
     const isActive = (image,index) => {
         if(index === active.value){
@@ -69,14 +77,14 @@
         }
     }
 
-    const updateImageUrl = (index) => {
-        imageUrl.value = products.value[index].image;
-    };
+    // const updateImageUrl = (index) => {
+    //     imageUrl.value = products.value[index].image;
+    // };
 
-    // Get the categoryId from the route params
-    const categoryId = Number(route.params.productId); // Assuming the parameter is 'id' and converting it to a number
+    // // Get the categoryId from the route params
+    // const categoryId = Number(route.params.productId); // Assuming the parameter is 'id' and converting it to a number
 
-    // Filter categories based on categoryId
-    const filteredProducts = products.value.filter(category => category.id === categoryId);
+    // // Filter categories based on categoryId
+    // const filteredProducts = products.value.filter(category => category.id === categoryId);
 
 </script>
